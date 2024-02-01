@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('phone')->unique();
             $table->string('image');
             $table->string('role');
-            $table->string('status');
+            $table->string('status')->default(1);
 
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

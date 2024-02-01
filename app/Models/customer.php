@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class customer extends Model
 {
     use HasFactory;
+
+    public function bookings(){
+        return $this->hasOne(Booking::class);
+    }
 }

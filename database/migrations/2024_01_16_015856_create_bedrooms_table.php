@@ -16,6 +16,12 @@ return new class extends Migration
             $table->integer('number');
             $table->string('zone');
             $table->double('cost', 8, 2);
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
+            $table->string('description');
+            $table->integer('status')->default(1);
+            
             $table->unsignedBigInteger('category_id');
 
             $table->foreign('category_id')->references('id')->on('categories');

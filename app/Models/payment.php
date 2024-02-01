@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class category extends Model
+class payment extends Model
 {
     use HasFactory;
 
-    public function bedrooms(){
-        return $this->belongsTo(Bedrooms::class);
+    public function booking(){
+        return $this->hasOne(Booking::class);
     }
 }

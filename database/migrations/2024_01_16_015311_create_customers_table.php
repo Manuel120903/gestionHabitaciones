@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone')->unique();
-            $table->string('origin');
+            $table->string('address');
+            $table->integer('status')->default(1);
             
             $table->timestamps();
         });

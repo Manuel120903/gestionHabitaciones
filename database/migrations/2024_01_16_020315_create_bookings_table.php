@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->integer('status');
             $table->date('date');
             $table->double('subtotal', 8, 2);
+            $table->integer('status')->default(1);
 
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('bedroom_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('payment_id');
 
+            $table->foreign('payment_id')->references('id')->on('payments');
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('bedroom_id')->references('id')->on('bedrooms');
             $table->foreign('user_id')->references('id')->on('users');
