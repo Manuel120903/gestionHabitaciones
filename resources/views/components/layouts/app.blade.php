@@ -12,9 +12,9 @@
 
     <!-- Custom styles for this template-->
     {{-- <link href="css/sb-admin-2.min.css" rel="stylesheet"> --}}
-    @Vite(["resources/js/app.js", "resources/css/sb-admin-2.css"])
 </head>
 <body>
     {{$slot}}
+    @Vite(["resources/js/app.js", "resources/css/sb-admin-2.css"])
 </body>
 </html>
