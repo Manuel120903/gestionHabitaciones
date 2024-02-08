@@ -20,5 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::view('/inicio', 'clientView.index')->name('index.about');
+
 Route::get('booking/create', [BookingController::class, 'create']);
 

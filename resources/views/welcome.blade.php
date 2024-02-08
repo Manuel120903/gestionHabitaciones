@@ -1,7 +1,4 @@
 <x-layouts.app title="Inicio">
-    
-   
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
