@@ -21,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::view('/inicio', 'clientView.index')->name('index.about');
+Route::view('/galeria', 'clientView.gallery')->name('index.gallery');
+Route::view('/paquetes', 'clientView.plans')->name('index.plans');
 
 Route::get('booking/create', [BookingController::class, 'create']);
 
