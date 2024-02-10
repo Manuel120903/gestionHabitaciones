@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer('number');
             $table->string('zone');
-            $table->double('cost', 8, 2);
             $table->string('image1');
             $table->string('image2');
             $table->string('image3');
