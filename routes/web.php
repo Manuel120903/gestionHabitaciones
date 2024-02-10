@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\User;
+use App\Http\Controllers\FakeStoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +24,39 @@ Route::get('/', function () {
     return view('pages.auth.login');
 });
 
-Route::view('/inicio', 'clientView.index')->name('index.about');
+//Rutas para las vistas del cliente
 Route::view('/galeria', 'clientView.gallery')->name('index.gallery');
 Route::view('/paquetes', 'clientView.plans')->name('index.plans');
 
+
+
+
+
+
+
+//----------------------Rutas para el controlador de FakeStore----------------------//
+Route::get('/products', [FakeStoreController::class, 'inicio'])->name('products.index');
+Route::get('/products', [FakeStoreController::class, 'getProducts'])->name('products.index');
+
+
+Route::get('/', [FakeStoreController::class, 'index']);
+Route::get('/cart', [FakeStoreController::class, 'cart'])->name('cart');
+Route::get('/add-to-cart/{id}', [FakeStoreController::class, 'addToCart'])->name('addToCart');
+
+// Route::get('/carrito', [FakeStoreController::class, 'cart'])->name('products.index');
+
+
 Route::get('booking/create', [BookingController::class, 'create']);
+
+
+
+
+
+
+
+
+
+
 
 
 //--------------------------Rutas de autenticación--------------------------//
@@ -57,19 +86,3 @@ Route::middleware(['auth.token'])->group(function () {
     Route::get("/users", [User::class, "index"])->name("users.index");
     Route::post("/users", [User::class, "store"])->name("users.store");
 });
-// Route::get('/dashboard', function () {
-//     return view('pages.dashboard.inicio');
-// })->name('dashboard');
-
-// Route::post('register', [AuthController::class, 'register']);
-// // Ruta de Habitaciones
-// Route::get("/bedrooms", [BedroomsController::class, "index"])->name("bedrooms.index");
-// Route::post("/bedrooms", [BedroomsController::class, "store"])->name("bedrooms.store");
-
-// //Ruta de Categorias
-// Route::get("/category", [CategoryController::class, "index"])->name("category.index");
-// Route::post("/category", [CategoryController::class, "store"])->name("category.store");
-
-// //Ruta de Usuarios
-// Route::get("/users", [User::class, "index"])->name("users.index");
-// Route::post("/users", [User::class, "store"])->name("users.store");

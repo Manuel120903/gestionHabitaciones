@@ -59,19 +59,18 @@
   </symbol>
 </svg>
 
-<div class="container py-3">
+<div class="container py-2">
   <header>
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
       <a href="" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-        <img src = resources/img/logo.png alt="logo"> 
-        {{-- <span class="fs-4">Paquetes de Hospedaje</span> --}}
+        <img src = "{{ asset('img/logo.png') }}" alt="logo"> 
       </a>
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Inicio</a>
-        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Galeria</a>
-        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Paquetes</a>
-        <a class="py-2 link-body-emphasis text-decoration-none" href="#">Contacto</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{{route('products.index')}}">Inicio</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{{route('index.gallery')}}">Galeria</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{{route('index.plans')}}">Paquetes</a>
+        <a class="py-2 link-body-emphasis text-decoration-none" href="{{route('auth.logout')}}">Cerrar Sesion</a>
       </nav>
     </div>
 
@@ -141,7 +140,7 @@
   <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-12 col-md">
-        <img class="mb-2" src="resources/img/logo.png" alt="logo" width="24" height="19">
+        <img class="mb-2" src="{{ asset('img/logo.png') }}" alt="logo" width="24" height="19">
         <small class="d-block mb-3 text-body-secondary">&copy; RubikCode 2024</small>
       </div>
       <div class="col-6 col-md">

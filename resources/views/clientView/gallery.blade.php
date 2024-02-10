@@ -80,7 +80,7 @@
     </style>
 
   <body>
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
       </symbol>
@@ -94,73 +94,42 @@
       <symbol id="sun-fill" viewBox="0 0 16 16">
         <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
       </symbol>
-    </svg>
+    </svg> --}}
 
     
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check" viewBox="0 0 16 16">
         <title>Check</title>
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
       </symbol>
-    </svg>
+    </svg> --}}
     
-    <div class="container py-3">
+    <div class="container py-2">
       <header>
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
           <a href="" class="d-flex align-items-center link-body-emphasis text-decoration-none">
-            <img src = resources/img/logo.png alt="logo"> 
-            {{-- <span class="fs-4">Paquetes de Hospedaje</span> --}}
+            <img src = "{{ asset('img/logo.png') }}" alt="logo"> 
           </a>
     
           <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Inicio</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Galeria</a>
-            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Paquetes</a>
-            <a class="py-2 link-body-emphasis text-decoration-none" href="#">Contacto</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{{route('products.index')}}">Inicio</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{{route('index.gallery')}}">Galeria</a>
+            <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="{{route('index.plans')}}">Paquetes</a>
+            <a class="py-2 link-body-emphasis text-decoration-none" href="{{route('auth.logout')}}">Cerrar Sesion</a>
           </nav>
         </div>
     
-{{-- <header data-bs-theme="dark">
-  <div class="collapse text-bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4>About</h4>
-          <p class="text-body-secondary">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4>Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        <strong>Album</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-</header> --}}
+
 
 <main>
 
-  <section class="py-5 text-center container">
+  <section class="py-3 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Conoce tu estancia</h1>
         <p class="lead text-body-secondary">Hemos trabajado para que tu estancia con nosotros sea lo mas comoda para ti. Deleitate con nuestra galeria y no dudes en reservar ahora</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Conocer paquetes</a>
+          <a href="{{route('index.plans')}}" class="btn btn-primary my-2">Conocer paquetes</a>
         </p>
       </div>
     </div>
@@ -171,7 +140,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -179,7 +148,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -187,17 +156,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            {{-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> --}}
-            <img src="img/bano.jpg" alt="">
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img src="{{ asset('img/sala.jpg') }}" alt="">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -206,7 +165,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -215,7 +174,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -224,7 +183,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -233,7 +192,7 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -242,7 +201,16 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <img class="card-img-top" src="resources/img/sala.jpg" alt="Sala">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="card-img-top" src="{{ asset('img/sala.jpg') }}" alt="Sala">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
             </div>
@@ -263,7 +231,5 @@
     <p class="mb-1">2024 &copy; Rubik Code</p>
     </div>
 </footer>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
     </body>
 </x-layouts.app>
