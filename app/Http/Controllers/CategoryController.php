@@ -16,8 +16,10 @@ class CategoryController extends Controller
     {
         $response = Http::withHeaders(['Authorization' => 'Bearer ' . Session::get('token')])->get($this->endpoint);
         $json = json_decode($response->body());
+        
 
         return view("pages.dashboard.categories.register")->with('category', $json->categories);
+        
     }
 
     public function store(Request $request)

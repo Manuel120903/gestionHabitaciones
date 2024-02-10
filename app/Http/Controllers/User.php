@@ -20,15 +20,19 @@ class User extends Controller
     public function store (Request $request)
     {
         
-        $response = Http::withHeaders(['Authorization'=>'Bearer '.Session::get('token')])->post($this->endpoint, [
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . Session::get('token'),
+            'Accept' => 'application/json',
+            // Asume que 'token' es el nombre correcto de la sesión para el token
+        ])->post($this->endpoint, [
             'name' => $request->name,
-            'email' => $request->zone,
-            'password' => $request->description,
+            'email' => $request->email,
+            'password' => $request->password,
             'phone' => $request->phone,
             'role' => $request->role,
             'image' => $request->image,
         ]);
-
+        //dd($response->json());
         return redirect()->route("users.index");
     }
 }

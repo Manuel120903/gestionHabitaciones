@@ -331,12 +331,19 @@
 
               <!-- Tabla de Usuarios -->
               <div class="container-fluid">
+                
                   <!-- Page Heading -->
                   <h1 class="h3 mb-2 text-gray-800">Usuarios</h1>
+                  <div class="d-flex justify-content-around m-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Registrar
+                    </button>
+                  </div>
                   <!-- DataTales Example -->
                   <div class="card shadow mb-4">
                       <div class="card-header py-3">
                           <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                          
                       </div>
                       <div class="card-body">
                           <div class="table-responsive">
@@ -352,16 +359,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
                                         @foreach ($users as $usuarios)
+                                        <tr>
                                         <td>{{$usuarios->id}}</td>
                                         <td>{{$usuarios->name}}</td>
                                         <td>{{$usuarios->email}}</td>
                                         <td>{{$usuarios->phone}}</td>
                                         <td>{{$usuarios->role}}</td>
                                         <td>{{$usuarios->image}}</td>
-                                        @endforeach
                                     </tr>
+                                        @endforeach
                                 </tbody>
                               </table>
                           </div>
@@ -370,10 +377,51 @@
               </div>
               <!-- /Terminacion la tabla de usuarios -->
           </div>
-
-          
-          <!-- End of Footer -->
-
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-bs-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Registro de Usuarios</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        {{-- Formulario --}}
+        <div class="modal-body">
+          <form action="{{ route('users.store') }}" method="POST">
+            @csrf
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-8">
+                  <x-forms.input label="Nombre" identifier="name" placeholder="nombre" />
+                </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="col-md-8">
+                      <x-forms.input-email label="Correo" identifier="email" placeholder="correo electonico" />
+                  </div>
+              </div>
+              <div class="col-md-12">
+                <div class="col-md-8">
+                  <x-forms.input-number label="Telefono" identifier="phone" placeholder="33" />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="col-md-8">
+                    <x-forms.input label="Rol" identifier="role" placeholder="rol" />
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="col-md-8">
+                    <x-forms.input-file label="Imagen" identifier="image" />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+          </form>
       </div>
       <!-- End of Content Wrapper -->
 

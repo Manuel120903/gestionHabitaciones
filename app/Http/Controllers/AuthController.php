@@ -23,6 +23,7 @@ class AuthController extends Controller
        ]);
        $json = json_decode($response->body());
        
+       
        if($json->message == "Unauthorized"){
            return redirect()->route('auth.login')->with('error', 'Credenciales incorrectas');
        }
@@ -30,7 +31,21 @@ class AuthController extends Controller
        if($json->message == "Successful"){
            Session::put('token', $json->accessToken);
        }
-       
-       return redirect()->route('dashboard');
+    //    dd($json->user->role);
+       if($json->user->role=='admin'){
+           return redirect()->route('dashboard');
+       }
+       if($json->user->role=='recepcionista'){
+        return redirect()->route('dashboard');
     }
+       return redirect()->route('index.gallery');
+    }
+    
+    public function logout(Request $request)
+    {
+        Http::withToken(Session::get('token'))->post('http://127.0.0.1:8001/api/logout');
+        Session::forget('token');
+        return redirect()->route('auth.login');
+    }
+    
 }

@@ -35,8 +35,11 @@ Route::get('booking/create', [BookingController::class, 'create']);
 Route::get('login', [AuthController::class, 'index']);
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 
-
+//Inicio de sesion con token
 Route::middleware(['auth.token'])->group(function () {
+
+    Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+
     Route::get('/dashboard', function () {
         return view('pages.dashboard.inicio');
     })->name('dashboard');
